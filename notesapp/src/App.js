@@ -1,24 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect, useReducer} from 'react';
+import { Button } from 'antd';
 import './App.css';
 
+import { API, graphqlOperation } from 'aws-amplify'
+import { listNotes } from './graphql/queries'
+
+function reducer(state, action) {
+  switch(action.type) {
+    case 'SET_NOTES':
+      return { ...state, notes: action.notes }
+    default:
+      return state
+  }
+}
+
+const initialState = {
+  notes: []
+}
+
 function App() {
+  const [state, dispatch] = useReducer(reducer, initialState)
+  useEffect(() => {
+    fetchNotes()
+  }, [])
+  async function fetchNotes() {
+    try {
+      const notesData = await API.graphql(graphqlOperation(listNotes))
+      dispatch({ type: 'SET_NOTES', notes: notesData.data.listNotes.items })
+    } catch (err) {
+      console.log('error: ', err)
+    }
+  }
+  
+  console.log('state: ', state)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{padding: 20}}>
+      <Button type="primary">Primary</Button>
     </div>
   );
 }
