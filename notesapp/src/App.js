@@ -1,11 +1,10 @@
 import React, {useEffect, useReducer} from 'react';
-import { Form, Input, List, Button, Skeleton } from 'antd'
-import './App.css';
+import { Input, List, Button, Skeleton } from 'antd'
 
 import uuid from 'uuid/v4'
 import { API, graphqlOperation } from 'aws-amplify'
 import { listNotes } from './graphql/queries'
-import { createNote as CreateNote, deleteNote as DeleteNote } from './graphql/mutations'
+import { updateNote as UpdateNote, createNote as CreateNote, deleteNote as DeleteNote } from './graphql/mutations'
 import { onCreateNote } from './graphql/subscriptions'
 
 const CLIENT_ID = uuid()
@@ -78,6 +77,19 @@ function App() {
     }
   }
 
+  async function updateNote(note) {
+    const index = state.notes.findIndex(n => n.id === note.id)
+    const notes = [...state.notes]
+    notes[index].completed = !note.completed 
+    dispatch({ type: 'SET_NOTES', notes})
+    try {
+      await API.graphql(graphqlOperation(UpdateNote, { input: notes[index] }))
+      console.log('note successfully updated!')
+    } catch (err) {
+      console.log('error: ', err)
+    }
+  }
+
   async function deleteNote(note) {
     const index = state.notes.findIndex(n => n.id === note.id)
     const notes = [...state.notes.slice(0, index), ...state.notes.slice(index + 1)];
@@ -91,20 +103,20 @@ function App() {
   }
 
   return (
-    <div className="App" style={{padding: 20}}>
+    <div style={styles.container}>
       <Input
         onChange={onChange}
         value={state.form.name}
         placeholder="Note Name"
         name='name'
-        style={{marginBottom: 10}}
+        style={styles.input}
       />
       <Input
         onChange={onChange}
         value={state.form.description}
         placeholder="Note description"
         name='description'
-        style={{marginBottom: 10}}
+        style={styles.input}
       />
       <Button
         onClick={createNote}
@@ -116,8 +128,13 @@ function App() {
         dataSource={state.notes}
         renderItem={item => (
           <List.Item
-            style={{ textAlign: 'left' }}
-            actions={[<a onClick={() => deleteNote(item)}>Delete</a>]}
+            style={styles.item}
+            actions={[
+              <p style={styles.p} onClick={() => deleteNote(item)}>Delete</p>,
+              <p style={styles.p} onClick={() => updateNote(item)}>
+                {item.completed ? 'completed' : 'mark completed'}
+              </p>
+            ]}
           >
             <Skeleton
               avatar
@@ -135,6 +152,13 @@ function App() {
       />
     </div>
   );
+}
+
+const styles = {
+  container: {padding: 20},
+  input: {marginBottom: 10},
+  item: { textAlign: 'left' },
+  p: { color: '#1890ff' }
 }
 
 export default App;
