@@ -4,6 +4,7 @@
 export const createNote = `mutation CreateNote($input: CreateNoteInput!) {
   createNote(input: $input) {
     id
+    clientId
     name
     description
     completed
@@ -13,6 +14,7 @@ export const createNote = `mutation CreateNote($input: CreateNoteInput!) {
 export const updateNote = `mutation UpdateNote($input: UpdateNoteInput!) {
   updateNote(input: $input) {
     id
+    clientId
     name
     description
     completed
@@ -22,6 +24,7 @@ export const updateNote = `mutation UpdateNote($input: UpdateNoteInput!) {
 export const deleteNote = `mutation DeleteNote($input: DeleteNoteInput!) {
   deleteNote(input: $input) {
     id
+    clientId
     name
     description
     completed

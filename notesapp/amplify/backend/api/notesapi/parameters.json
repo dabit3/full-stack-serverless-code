@@ -1,4 +1,5 @@
 {
     "AppSyncApiName": "notesapi",
-    "DynamoDBBillingMode": "PAY_PER_REQUEST"
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "APIKeyExpirationEpoch": 1592645550
 }

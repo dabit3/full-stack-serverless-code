@@ -7,7 +7,8 @@
     "aws-amplify": "^1.1.28",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
