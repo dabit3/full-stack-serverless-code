@@ -1,8 +1,8 @@
 import React, {useEffect, useReducer} from 'react';
 import { Input, List, Button, Skeleton } from 'antd'
-
 import uuid from 'uuid/v4'
 import { API, graphqlOperation } from 'aws-amplify'
+
 import { listNotes } from './graphql/queries'
 import { updateNote as UpdateNote, createNote as CreateNote, deleteNote as DeleteNote } from './graphql/mutations'
 import { onCreateNote } from './graphql/subscriptions'
