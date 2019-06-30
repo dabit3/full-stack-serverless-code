@@ -1,5 +1,6 @@
 import React, {useEffect, useReducer} from 'react';
 import { Input, List, Button } from 'antd'
+import 'antd/dist/antd.css'
 import uuid from 'uuid/v4'
 import API, { graphqlOperation } from '@aws-amplify/api'
 
@@ -103,20 +104,22 @@ function App() {
   }
 
   function renderItem(item) {
-    <List.Item
-      style={styles.item}
-      actions={[
-        <p style={styles.p} onClick={() => deleteNote(item)}>Delete</p>,
-        <p style={styles.p} onClick={() => updateNote(item)}>
-          {item.completed ? 'completed' : 'mark completed'}
-        </p>
-      ]}
-    >
-      <List.Item.Meta
-        title={item.name}
-        description={item.description}
-      />
-    </List.Item>
+    return (
+      <List.Item
+        style={styles.item}
+        actions={[
+          <p style={styles.p} onClick={() => deleteNote(item)}>Delete</p>,
+          <p style={styles.p} onClick={() => updateNote(item)}>
+            {item.completed ? 'completed' : 'mark completed'}
+          </p>
+        ]}
+      >
+        <List.Item.Meta
+          title={item.name}
+          description={item.description}
+        />
+      </List.Item>
+      )
   }
 
   return (
