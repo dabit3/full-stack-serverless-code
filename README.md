@@ -4,7 +4,7 @@
 
 #### Chapter 3
 
-[GraphQL app](https://github.com/dabit3/full-stack-serverless-code/tree/master/graphql)
+[GraphQL](https://github.com/dabit3/full-stack-serverless-code/tree/master/graphql)
 
 #### Chapter 4
 
