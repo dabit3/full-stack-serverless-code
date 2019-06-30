@@ -2,6 +2,7 @@ import React, {useEffect, useReducer} from 'react';
 import { Input, List, Button } from 'antd'
 import uuid from 'uuid/v4'
 import API, { graphqlOperation } from '@aws-amplify/api'
+
 import { listNotes } from './graphql/queries'
 import { updateNote as UpdateNote, createNote as CreateNote, deleteNote as DeleteNote } from './graphql/mutations'
 import { onCreateNote } from './graphql/subscriptions'
@@ -89,12 +90,12 @@ function App() {
     }
   }
 
-  async function deleteNote(note) {
-    const index = state.notes.findIndex(n => n.id === note.id)
+  async function deleteNote({ id }) {
+    const index = state.notes.findIndex(n => n.id === id)
     const notes = [...state.notes.slice(0, index), ...state.notes.slice(index + 1)];
     dispatch({ type: 'SET_NOTES', notes })
     try {
-      await API.graphql(graphqlOperation(DeleteNote, { input: {id: note.id} }))
+      await API.graphql(graphqlOperation(DeleteNote, { input: {id} }))
       console.log('successfully deleted note!') 
       } catch (err) {
         console.log({ err })
