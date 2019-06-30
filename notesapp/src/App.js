@@ -1,8 +1,7 @@
 import React, {useEffect, useReducer} from 'react';
-import { Input, List, Button, Skeleton } from 'antd'
+import { Input, List, Button } from 'antd'
 import uuid from 'uuid/v4'
-import { API, graphqlOperation } from 'aws-amplify'
-
+import API, { graphqlOperation } from '@aws-amplify/api'
 import { listNotes } from './graphql/queries'
 import { updateNote as UpdateNote, createNote as CreateNote, deleteNote as DeleteNote } from './graphql/mutations'
 import { onCreateNote } from './graphql/subscriptions'
@@ -66,7 +65,7 @@ function App() {
   async function createNote() {
     const { form } = state
     if (!form.name || !form.description) return alert('please enter a name and description')
-    const note = { ...form, clientId: CLIENT_ID }
+    const note = { ...form, clientId: CLIENT_ID, completed: false }
     dispatch({ type: 'ADD_NOTE', note })
     dispatch({ type: 'RESET_FORM' })
     try {
@@ -124,7 +123,6 @@ function App() {
       >Create Note</Button>
       <List
         loading={state.loading}
-        itemLayout="horizontal"
         dataSource={state.notes}
         renderItem={item => (
           <List.Item
@@ -136,17 +134,10 @@ function App() {
               </p>
             ]}
           >
-            <Skeleton
-              avatar
-              title={false}
-              active
-              loading={state.loading}
-            >
-              <List.Item.Meta
-                title={item.name}
-                description={item.description}
-              />
-            </Skeleton>
+            <List.Item.Meta
+              title={item.name}
+              description={item.description}
+            />
           </List.Item>
         )}
       />
