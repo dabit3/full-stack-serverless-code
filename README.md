@@ -4,7 +4,7 @@
 
 #### Chapter 3
 
-[Notes app](https://github.com/dabit3/full-stack-serverless-code/tree/master/notesapp)
+[GraphQL app](https://github.com/dabit3/full-stack-serverless-code/tree/master/graphql)
 
 #### Chapter 4
 

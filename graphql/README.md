@@ -1,4 +1,4 @@
-# Chapter 3 - Notes App
+# Chapter 3 - Real-time GraphQL Notes App
 
 To run this app:
 
@@ -11,7 +11,7 @@ git clone https://github.com/dabit3/full-stack-serverless-code.git
 2. Change into the directory
 
 ```sh
-cd notesapp
+cd graphql
 ```
 
 3. Install the dependencies
