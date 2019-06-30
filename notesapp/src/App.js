@@ -102,6 +102,23 @@ function App() {
     }
   }
 
+  function renderItem(item) {
+    <List.Item
+      style={styles.item}
+      actions={[
+        <p style={styles.p} onClick={() => deleteNote(item)}>Delete</p>,
+        <p style={styles.p} onClick={() => updateNote(item)}>
+          {item.completed ? 'completed' : 'mark completed'}
+        </p>
+      ]}
+    >
+      <List.Item.Meta
+        title={item.name}
+        description={item.description}
+      />
+    </List.Item>
+  }
+
   return (
     <div style={styles.container}>
       <Input
@@ -125,22 +142,7 @@ function App() {
       <List
         loading={state.loading}
         dataSource={state.notes}
-        renderItem={item => (
-          <List.Item
-            style={styles.item}
-            actions={[
-              <p style={styles.p} onClick={() => deleteNote(item)}>Delete</p>,
-              <p style={styles.p} onClick={() => updateNote(item)}>
-                {item.completed ? 'completed' : 'mark completed'}
-              </p>
-            ]}
-          >
-            <List.Item.Meta
-              title={item.name}
-              description={item.description}
-            />
-          </List.Item>
-        )}
+        renderItem={renderItem}
       />
     </div>
   );
