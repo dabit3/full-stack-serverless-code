@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { Menu, Icon } from 'antd'
 
 const Nav = (props) => {
-  const { updateNav, current } = props
+  const { current } = props
   return (
     <div>
-      <Menu onClick={updateNav} selectedKeys={[current]} mode="horizontal">
+      <Menu selectedKeys={[current]} mode="horizontal">
         <Menu.Item key='home'>
           <Link to={`/`}>
             <Icon type='home' />Home

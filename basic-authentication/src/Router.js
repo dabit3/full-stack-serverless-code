@@ -9,20 +9,23 @@ import Protected from './Protected'
 const Router = () => {
   const [current, setCurrent] = useState('home')
   useEffect(() => {
+    setRoute()
+    window.addEventListener('hashchange', () => setRoute())
+  }, [])
+  function setRoute() {
     const location = window.location.href.split('/')
     const pathname = location[location.length-1]
     setCurrent(pathname ? pathname : 'home')
-  }, [])
-  const updateNav = value => setCurrent(value.key)
+  }
   return (
     <HashRouter>
-      <Nav current={current} updateNav={updateNav}  />
+      <Nav current={current} />
       <Switch>
         <Route exact path="/" component={Public}/>
         <Route
           exact
           path="/protected" 
-          render={(routeProps) => (
+          render={routeProps => (
             <Protected
               {...routeProps}
               current={current}
