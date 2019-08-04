@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Menu, Icon } from 'antd'
 
 const Nav = (props) => {
@@ -27,4 +27,4 @@ const Nav = (props) => {
   )
 }
 
-export default withRouter(Nav)
+export default Nav

@@ -20,7 +20,6 @@ function App() {
     Auth.signOut()
       .catch(err => console.log('error signing out: ', err))
   }
-  console.log('user:', user)
   return (
     <Container>
       <h1>Profile</h1>

@@ -10,7 +10,8 @@ const Router = () => {
   const [current, setCurrent] = useState('home')
   useEffect(() => {
     setRoute()
-    window.addEventListener('hashchange', () => setRoute())
+    window.addEventListener('hashchange', setRoute)
+    return () =>  window.removeEventListener('hashchange', setRoute)
   }, [])
   function setRoute() {
     const location = window.location.href.split('/')
