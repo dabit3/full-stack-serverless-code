@@ -4,7 +4,7 @@ import { Auth } from 'aws-amplify'
 import { withAuthenticator } from 'aws-amplify-react'
 import Container from './Container'
 
-function App() {
+function Profile() {
   useEffect(() => {
     checkUser()
   }, [])
