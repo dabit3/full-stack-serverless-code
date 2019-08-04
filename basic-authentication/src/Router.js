@@ -23,17 +23,7 @@ const Router = () => {
       <Nav current={current} />
       <Switch>
         <Route exact path="/" component={Public}/>
-        <Route
-          exact
-          path="/protected" 
-          render={routeProps => (
-            <Protected
-              {...routeProps}
-              current={current}
-              setCurrent={setCurrent}
-            />
-          )}
-        />
+        <Route exact path="/protected" component={Protected} />
         <Route exact path="/profile" component={Profile}/>
         <Route component={Public}/>
       </Switch>

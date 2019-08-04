@@ -6,7 +6,6 @@ function Protected(props) {
   useEffect(() => {
     Auth.currentAuthenticatedUser()
       .catch(() => {
-        props.setCurrent('profile')
         props.history.push('/profile')
       })
   }, [])
