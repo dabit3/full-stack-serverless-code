@@ -31,4 +31,4 @@ function Profile() {
   );
 }
 
-export default withAuthenticator(App)
+export default withAuthenticator(Profile)
