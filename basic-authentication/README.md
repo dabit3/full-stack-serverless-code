@@ -1,5 +1,7 @@
 # Chapter 4 - Basic Authentication
 
+React app with basic protected routes and authentication using AWS Amplify and React Router.
+
 ![](one.png)
 
 ---
