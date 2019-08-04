@@ -1,5 +1,9 @@
 # Chapter 4 - Basic Authentication
 
+![](one.png)
+
+![](two.png)
+
 To run this app:
 
 1. Clone the repository
