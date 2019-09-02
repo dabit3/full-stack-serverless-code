@@ -1,9 +1,9 @@
 {
-    "identityPoolName": "basicauthentication5f86298a_identitypool_5f86298a",
+    "identityPoolName": "basicauthentication5fbc10de_identitypool_5fbc10de",
     "allowUnauthenticatedIdentities": false,
-    "openIdLambdaRoleName": "basica5f86298a_openid_lambda_role",
-    "resourceNameTruncated": "basica5f86298a",
-    "userPoolName": "basicauthentication5f86298a_userpool_5f86298a",
+    "openIdLambdaRoleName": "basica5fbc10de_openid_lambda_role",
+    "resourceNameTruncated": "basica5fbc10de",
+    "userPoolName": "basicauthentication5fbc10de_userpool_5fbc10de",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -21,7 +21,7 @@
     "requiredAttributes": [
         "email"
     ],
-    "userpoolClientName": "basica5f86298a_app_client",
+    "userpoolClientName": "basica5fbc10de_app_client",
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
@@ -30,10 +30,10 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "mfaLambdaRole": "basica5f86298a_totp_lambda_role",
-    "userpoolClientLambdaRole": "basica5f86298a_userpoolclient_lambda_role",
+    "mfaLambdaRole": "basica5fbc10de_totp_lambda_role",
+    "userpoolClientLambdaRole": "basica5fbc10de_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "resourceName": "basicauthentication5f86298a",
+    "resourceName": "basicauthentication5fbc10de",
     "authSelections": "identityPoolAndUserPool",
     "authRoleName": {
         "Ref": "AuthRoleName"
