@@ -1,6 +1,6 @@
 import React, { useState, useReducer } from 'react'
-
 import { Auth } from 'aws-amplify'
+import Button from './Button'
 
 const initialFormState = {
   username: '', password: '', email: '', confirmationCode: ''
@@ -39,17 +39,22 @@ async function confirmSignUp({ username, confirmationCode }, updateFormType) {
   }
 }
 
-async function signIn({ username, password }) {
+async function signIn({ username, password }, setUser) {
   try {
-    await Auth.signIn(username, password)
+    const user = await Auth.signIn(username, password)
     console.log('sign in success!')
+    setUser(user)
   } catch (err) {
     console.log('error signing up..', err)
   }
 }
 
-export default function Form() {
-  const [formType, updateFormType] = useState('signUp')
+function forgotPassword() {}
+
+function forgotPasswordSubmit() {}
+
+export default function Form(props) {
+  const [formType, updateFormType] = useState('signIn')
   const [formState, updateFormState] = useReducer(reducer, initialFormState)
   function renderForm() {
     switch(formType) {
@@ -70,11 +75,25 @@ export default function Form() {
       case 'signIn':
         return (
           <SignIn
-            signIn={() => signIn(formState)}
+            signIn={() => signIn(formState, props.setUser)}
             updateFormState={e => updateFormState({ type: 'updateFormState', e })}
           />
         )
-      default:
+      case 'forgotPassword':
+        return (
+          <ForgotPassword
+          forgotPassword={() => forgotPassword(formState, updateFormType)}
+          updateFormState={e => updateFormState({ type: 'updateFormState', e })}
+          />
+        )
+      case 'forgotPasswordSubmit':
+        return (
+          <ForgotPasswordSubmit
+            forgotPasswordSubmit={() => forgotPasswordSubmit(formState, updateFormType)}
+            updateFormState={e => updateFormState({ type: 'updateFormState', e })}
+          />
+        )
+     default:
         return null
     }
   }
@@ -83,7 +102,7 @@ export default function Form() {
   return (
     <div>
       <div>
-        {renderForm(formState)}
+        {renderForm()}
       </div>
       {
         formType === 'signUp' && (
@@ -97,12 +116,20 @@ export default function Form() {
       }
       {
         formType === 'signIn' && (
-          <p style={styles.footer}>
-            Need an account? <span
-              style={styles.anchor}
-              onClick={() => updateFormType('signUp')}
-            >Sign Up</span>
-          </p>
+          <>
+            <p style={styles.footer}>
+              Need an account? <span
+                style={styles.anchor}
+                onClick={() => updateFormType('signUp')}
+              >Sign Up</span>
+            </p>
+            <p style={{ ...styles.footer, ...styles.resetPassword}}>
+              Forget your password? <span
+                style={styles.anchor}
+                onClick={() => updateFormType('signIn')}
+              >Reset Password</span>
+            </p>
+          </>
         )
       }
     </div>
@@ -131,9 +158,7 @@ function SignUp(props) {
         style={styles.input}
         placeholder='email'
       />
-      <button onClick={props.signUp} style={styles.button}>
-        Sign Up
-      </button>
+      <Button onClick={props.signUp} title="Sign Up" />
     </div>
   )
 }
@@ -154,9 +179,7 @@ function SignIn(props) {
         style={styles.input}
         placeholder='password'
       />
-      <button style={styles.button} onClick={props.signIn}>
-        Sign In
-      </button>
+      <Button onClick={props.signIn} title="Sign In" />
     </div>
   )
 }
@@ -170,9 +193,42 @@ function ConfirmSignUp(props) {
         onChange={e => {e.persist();props.updateFormState(e)}}
         style={styles.input}
       />
-      <button onClick={props.confirmSignUp} style={styles.button}>
-        Confirm Sign Up
-      </button>
+      <Button onClick={props.confirmSignUp} title="Confirm Sign Up" />
+    </div>
+  )
+}
+
+function ForgotPassword(props) {
+  return (
+    <div style={styles.container}>
+      <input
+        name='username'
+        placeholder='Username'
+        onChange={e => {e.persist();props.updateFormState(e)}}
+        style={styles.input}
+      />
+      <Button onClick={props.forgotPassword} title="Reset password" />
+    </div>
+  )
+}
+
+function ForgotPasswordSubmit(props) {
+  return (
+    <div style={styles.container}>
+      <input
+        name='code'
+        placeholder='Confirmation code'
+        onChange={e => {e.persist();props.updateFormState(e)}}
+        style={styles.input}
+      />
+      <input
+        name='password'
+        placeholder='New password'
+        type='password'
+        onChange={e => {e.persist();props.updateFormState(e)}}
+        style={styles.input}
+      />
+      <Button onClick={props.forgotPasswordSubmit} title="Save new password" />
     </div>
   )
 }
@@ -208,13 +264,19 @@ const styles = {
     border:'none',
     outline: 'none',
     borderRadius: 3,
+    marginTop: '25px',
     boxShadow: '0px 1px 3px rgba(0, 0, 0, .3)',
   },
   footer: {
     fontWeight: '600',
     padding: '0px 25px',
+    marginTop: '15px',
+    marginBottom: 0,
     textAlign: 'center',
     color: 'rgba(0, 0, 0, 0.6)'
+  },
+  resetPassword: {
+    marginTop: '5px',
   },
   anchor: {
     color: '#006bfc',

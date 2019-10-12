@@ -11,7 +11,6 @@ const Router = () => {
   useEffect(() => {
     setRoute()
     window.addEventListener('hashchange', setRoute)
-    return () =>  window.removeEventListener('hashchange', setRoute)
   }, [])
   function setRoute() {
     const location = window.location.href.split('/')
