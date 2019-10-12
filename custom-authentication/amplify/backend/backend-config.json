@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"customauthentication77ca6460": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
