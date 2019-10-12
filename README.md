@@ -11,4 +11,4 @@
 [Basic authentication](https://github.com/dabit3/full-stack-serverless-code/tree/master/basic-authentication)
 
 #### Chapter 5
-[Custom authentication]()
+[Custom authentication](https://github.com/dabit3/full-stack-serverless-code/tree/master/custom-authentication)
