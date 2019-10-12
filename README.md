@@ -1,5 +1,7 @@
 # Full Stack Serverless
 
+This is the repo for the code examples from my book [Full Stack Serverless](https://www.oreilly.com/library/view/full-stack-serverless/9781492059882/)
+
 ### This repo is a work in progress
 
 #### Chapter 3
