@@ -35,8 +35,8 @@ async function confirmSignUp({ username, confirmationCode }, updateFormType) {
 async function signIn({ username, password }, setUser) {
   try {
     const user = await Auth.signIn(username, password)
-    console.log('sign in success!')
-    setUser(user)
+    const userInfo = { username: user.username, ...user.attributes }
+    setUser(userInfo)
   } catch (err) {
     console.log('error signing up..', err)
   }

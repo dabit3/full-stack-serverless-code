@@ -11,7 +11,7 @@ const protectedRoute = (Comp, route = '/profile') => (props) => {
   }
   useEffect(() => {
     checkAuthState()
-  }, [])
+  })
   return <Comp {...props} />
 }
 

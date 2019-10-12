@@ -14,7 +14,6 @@ const styles = {
     color: 'white',
     width: 316,
     height: 45,
-    marginTop: 10,
     fontWeight: '600',
     fontSize: 14,
     cursor: 'pointer',
