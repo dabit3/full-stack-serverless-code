@@ -25,7 +25,6 @@ async function signUp({ username, password, email }, updateFormType) {
 async function confirmSignUp({ username, confirmationCode }, updateFormType) {
   try {
     await Auth.confirmSignUp(username, confirmationCode)
-    console.log('confirm sign up success!')
     updateFormType('signIn')
   } catch (err) {
     console.log('error signing up..', err)
@@ -43,7 +42,6 @@ async function signIn({ username, password }, setUser) {
 }
 
 async function forgotPassword({ username }, updateFormType) {
-  console.log('username:', username)
   try {
     await Auth.forgotPassword(username)
     updateFormType('forgotPasswordSubmit')
@@ -54,9 +52,6 @@ async function forgotPassword({ username }, updateFormType) {
 
 async function forgotPasswordSubmit({ username, confirmationCode, password }, updateFormType) {
   try {
-    console.log('username:', username)
-    console.log('confirmationCode:', confirmationCode)
-    console.log('password:', password)
     await Auth.forgotPasswordSubmit(username, confirmationCode, password)
     updateFormType('signIn')
   } catch (err) {
@@ -68,10 +63,10 @@ function Form(props) {
   const [formType, updateFormType] = useState('signIn')
   const [formState, updateFormState] = useState(initialFormState)
   function updateForm(event) {
-    const newState = {
+    const newFormState = {
       ...formState, [event.target.name]: event.target.value
     }
-    updateFormState(newState)
+    updateFormState(newFormState)
   }
 
   function renderForm() {
