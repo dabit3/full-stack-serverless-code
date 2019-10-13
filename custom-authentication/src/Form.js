@@ -117,7 +117,7 @@ function Form(props) {
       {renderForm()}
       {
         formType === 'signUp' && (
-          <p style={styles.footer}>
+          <p style={styles.toggleForm}>
             Already have an account? <span
               style={styles.anchor}
               onClick={() => updateFormType('signIn')}
@@ -128,13 +128,13 @@ function Form(props) {
       {
         formType === 'signIn' && (
           <>
-            <p style={styles.footer}>
+            <p style={styles.toggleForm}>
               Need an account? <span
                 style={styles.anchor}
                 onClick={() => updateFormType('signUp')}
               >Sign Up</span>
             </p>
-            <p style={{ ...styles.footer, ...styles.resetPassword}}>
+            <p style={{ ...styles.toggleForm, ...styles.resetPassword}}>
               Forget your password? <span
                 style={styles.anchor}
                 onClick={() => updateFormType('forgotPassword')}
@@ -166,7 +166,7 @@ const styles = {
     border: 'none',
     borderBottom: '2px solid rgba(0, 0, 0, .3)'
   },
-  footer: {
+  toggleForm: {
     fontWeight: '600',
     padding: '0px 25px',
     marginTop: '15px',
