@@ -6,7 +6,7 @@ function ForgotPasswordSubmit(props) {
   return (
     <div style={styles.container}>
       <input
-        name='code'
+        name='confirmationCode'
         placeholder='Confirmation code'
         onChange={e => {e.persist();props.updateFormState(e)}}
         style={styles.input}

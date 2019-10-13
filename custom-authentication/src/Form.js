@@ -43,17 +43,21 @@ async function signIn({ username, password }, setUser) {
 }
 
 async function forgotPassword({ username }, updateFormType) {
+  console.log('username:', username)
   try {
     await Auth.forgotPassword(username)
     updateFormType('forgotPasswordSubmit')
   } catch (err) {
-    console.log('error submitting username to reset password...')
+    console.log('error submitting username to reset password...', err)
   }
 }
 
-async function forgotPasswordSubmit({ username, confirmationCode, new_password }, updateFormType) {
+async function forgotPasswordSubmit({ username, confirmationCode, password }, updateFormType) {
   try {
-    await Auth.forgotPasswordSubmit(username, confirmationCode, new_password)
+    console.log('username:', username)
+    console.log('confirmationCode:', confirmationCode)
+    console.log('password:', password)
+    await Auth.forgotPasswordSubmit(username, confirmationCode, password)
     updateFormType('signIn')
   } catch (err) {
     console.log('error updating password... :', err)
@@ -115,9 +119,7 @@ function Form(props) {
 
   return (
     <div>
-      <div>
-        {renderForm()}
-      </div>
+      {renderForm()}
       {
         formType === 'signUp' && (
           <p style={styles.footer}>
