@@ -15,7 +15,7 @@ git clone https://github.com/dabit3/full-stack-serverless-code.git
 2. Change into the directory
 
 ```sh
-cd basic-authentication
+cd custom-authentication
 ```
 
 3. Install the dependencies
