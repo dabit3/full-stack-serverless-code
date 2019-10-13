@@ -1,0 +1,24 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "serverlessfunctionsi-dev-20191012202501-authRole",
+            "UnauthRoleArn": "arn:aws:iam::557458351015:role/serverlessfunctionsi-dev-20191012202501-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::557458351015:role/serverlessfunctionsi-dev-20191012202501-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "serverlessfunctionsi-dev-20191012202501-deployment",
+            "UnauthRoleName": "serverlessfunctionsi-dev-20191012202501-unauthRole",
+            "StackName": "serverlessfunctionsi-dev-20191012202501",
+            "StackId": "arn:aws:cloudformation:us-west-2:557458351015:stack/serverlessfunctionsi-dev-20191012202501/0ba59220-ed69-11e9-b070-0a5d164d0af8"
+        },
+        "categories": {
+            "function": {
+                "serverlessfunctionsic0a69b1cPostConfirmation": {
+                    "GROUP": "Admin"
+                }
+            },
+            "auth": {
+                "serverlessfunctionsic0a69b1c": {}
+            }
+        }
+    }
+}

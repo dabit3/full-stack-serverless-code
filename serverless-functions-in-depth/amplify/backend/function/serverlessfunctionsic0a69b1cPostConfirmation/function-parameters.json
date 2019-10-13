@@ -1,0 +1,14 @@
+{
+    "trigger": true,
+    "modules": [
+        "add-to-group"
+    ],
+    "parentResource": "serverlessfunctionsic0a69b1c",
+    "functionName": "serverlessfunctionsic0a69b1cPostConfirmation",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerTemplate": "PostConfirmation.json.ejs",
+    "roleName": "serverlessfunctionsic0a69b1cPostConfirmation",
+    "skipEdit": true,
+    "resourceName": "serverlessfunctionsic0a69b1cPostConfirmation"
+}

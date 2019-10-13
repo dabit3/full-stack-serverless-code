@@ -14,3 +14,6 @@ This is the repo for the code examples from my book [Full Stack Serverless](http
 
 #### Chapter 5
 [Custom authentication](https://github.com/dabit3/full-stack-serverless-code/tree/master/custom-authentication)
+
+#### Chapter 6
+[Serverless functions in depth](https://github.com/dabit3/full-stack-serverless-code/tree/master/serverless-functions-in-depth)
