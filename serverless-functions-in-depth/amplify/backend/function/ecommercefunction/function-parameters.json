@@ -1,0 +1,20 @@
+{
+    "permissions": {
+        "auth": {
+            "serverlessfunctionsic0a69b1c": [
+                "create",
+                "read",
+                "update",
+                "delete"
+            ]
+        },
+        "storage": {
+            "producttable": [
+                "create",
+                "read",
+                "update",
+                "delete"
+            ]
+        }
+    }
+}

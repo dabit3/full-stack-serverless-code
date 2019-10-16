@@ -1,6 +1,6 @@
 {
     "identityPoolName": "serverlessfunctionsic0a69b1c_identitypool_c0a69b1c",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "serverc0a69b1c",
     "userPoolName": "serverlessfunctionsic0a69b1c_userpool_c0a69b1c",
     "autoVerifiedAttributes": [
