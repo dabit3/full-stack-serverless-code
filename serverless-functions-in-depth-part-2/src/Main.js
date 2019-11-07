@@ -18,6 +18,16 @@ function Main() {
       products: data.data.Items, loading: false
     })
   }
+  async function updateItem() {
+    try {
+      const data = await API.put('ecommerceapi', '/products',
+      { body: { id: "10f82a3c-8ae0-4dc3-aded-acf2482cd7e3" } })
+    console.log('data: ', data)
+    console.log('successfully updated item')
+    } catch (err) {
+      console.log('error: ', err)
+    }
+  }
   return (
     <Container>
       <List
@@ -33,6 +43,7 @@ function Main() {
           </List.Item>
         )}
       />
+      <button onClick={updateItem}>Update item</button>
     </Container>
   )
 }

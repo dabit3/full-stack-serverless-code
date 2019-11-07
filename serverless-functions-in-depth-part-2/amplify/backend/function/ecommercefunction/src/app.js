@@ -114,10 +114,8 @@ function getItems(){
 app.get('/products', async function(req, res) {
   try {
     const data = await getItems()
-    const item = await getItem("5446054e-4fb9-4c45-8564-1592fa94120b")
     res.json({
-      data: data,
-      item
+      data: data
     })
   } catch (err) {
     res.json({
@@ -178,9 +176,34 @@ app.post('/products/*', function(req, res) {
 * Example put method *
 ****************************/
 
-app.put('/products', function(req, res) {
+app.put('/products', async function(req, res) {
   // Add your code here
-  res.json({success: 'put call succeed!', url: req.url, body: req.body})
+  try {
+    await updateItem(req.body.id)
+    res.json({ success: 'successfully deleted item' })
+  } catch (err) {
+    res.json({ error: err })
+  }
+
+  function updateItem(id){
+    var params = {
+      TableName: ddb_table_name,
+      Key: { id },
+      UpdateExpression: 'set price = :newprice',
+      ExpressionAttributeValues: { ':newprice': 100 }
+    }
+  
+    return new Promise((resolve, reject) => {
+      docClient.update(params, function(err, data) {
+        if (err) {
+          console.log('error updating item!: ', err)
+          reject(err)
+        } else {
+          resolve(data)
+        }
+      })
+    })
+  }
 });
 
 app.put('/products/*', function(req, res) {
@@ -192,9 +215,32 @@ app.put('/products/*', function(req, res) {
 * Example delete method *
 ****************************/
 
-app.delete('/products', function(req, res) {
-  // Add your code here
-  res.json({success: 'delete call succeed!', url: req.url});
+app.delete('/products', async function(req, res) {
+  try {
+    await deleteItem(req.body.id)
+    res.json({ success: 'successfully deleted item' })
+  } catch (err) {
+    res.json({ error: err })
+  }
+
+  function deleteItem(id){
+    var params = {
+      TableName : ddb_table_name,
+      Key: { id }
+    }
+  
+    return new Promise((resolve, reject) => {
+      docClient.delete(params, function(err, data) {
+        if (err) {
+          console.log('error deleting item!: ', err)
+          reject(err)
+        } else {
+          resolve(data)
+        }
+      })
+    })
+  }
+  
 });
 
 app.delete('/products/*', function(req, res) {
