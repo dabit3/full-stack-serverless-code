@@ -76,25 +76,6 @@ async function canPerformAction(event, group) {
   })
 }
 
-function getItem(id){
-  var params = {
-    TableName: ddb_table_name,
-    Key: {
-      id
-    }
-  }
-  return new Promise((resolve, reject) => {
-    docClient.get(params, function(err, data) {
-      if (err) {
-        console.log('error getting item!: ', err)
-        reject(err)
-      } else {
-        resolve(data)
-      }
-    })
-  })
-}
-
 function getItems(){
   var params = {
     TableName: ddb_table_name,
@@ -171,7 +152,7 @@ app.put('/products', async function(req, res) {
       ExpressionAttributeValues: { ':newprice': 100 }
     }
     await docClient.update(params).promise()
-    res.json({ success: 'successfully deleted item' })
+    res.json({ success: 'successfully updated item' })
   } catch (err) {
     res.json({ error: err })
   }
@@ -187,7 +168,9 @@ app.put('/products/*', function(req, res) {
 ****************************/
 
 app.delete('/products', async function(req, res) {
+  const { event } = req.apiGateway
   try {
+    await canPerformAction(event, 'Admin')
     var params = {
       TableName : ddb_table_name,
       Key: { id: req.body.id }

@@ -84,7 +84,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-serverlessfunctionsi-dev-130003-deployment",
-					"S3Key": "amplify-builds/ecommercefunction-434e6152713878623936-build.zip"
+					"S3Key": "amplify-builds/ecommercefunction-7579544d712f4a654457-build.zip"
 				}
 			}
 		},

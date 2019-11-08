@@ -52,7 +52,6 @@ function Admin() {
         style={buttonStyle}
         onClick={addItem}
       >Add Product</Button>
-      <Button onClick={signOut}>Sign Out</Button>
     </div>
   );
 }
