@@ -2,34 +2,31 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Menu, Icon } from 'antd'
 import { Auth, Hub } from 'aws-amplify'
+import checkUser from './checkUser'
 
 const Nav = (props) => {
   const { current } = props
   const [user, updateUser] = useState({})
-  async function checkUser() {
-    const userData = await Auth.currentSession().catch(err => console.log('error: ', err))
-    if (!userData) return
-    const { idToken: { payload }} = userData
-    const isAuthorized = payload['cognito:groups'].includes('Admin')
-    updateUser({
-      username: payload['cognito:username'],
-      isAuthorized
-    })
-  }
   useEffect(() => {
-    checkUser()
+    checkUser(updateUser)
     Hub.listen('auth', (data) => {
       const { payload: { event } } = data;
-      if (event === 'signIn') checkUser()
-  })
+      console.log('event: ', event)
+      if (event === 'signIn' || event === 'signOut') checkUser()
+    })
   }, [])
-  console.log('user: ', user)
+
   return (
     <div>
       <Menu selectedKeys={[current]} mode="horizontal">
         <Menu.Item key='home'>
           <Link to={`/`}>
             <Icon type='home' />Home
+          </Link>
+        </Menu.Item>
+        <Menu.Item key='profile'>
+          <Link to='/profile'>
+            <Icon type='user' />Profile
           </Link>
         </Menu.Item>
         {

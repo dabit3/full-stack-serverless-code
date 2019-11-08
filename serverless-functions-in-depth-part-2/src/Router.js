@@ -4,6 +4,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom'
 import Nav from './Nav'
 import Admin from './Admin'
 import Main from './Main'
+import Profile from './Profile'
 
 export default function Router() {
   const [current, setCurrent] = useState('home')
@@ -24,6 +25,7 @@ export default function Router() {
       <Switch>
         <Route exact path='/' component={Main} />
         <Route path='/admin' component={Admin} />
+        <Route path='/profile' component={Profile} />
         <Route component={Main} />
       </Switch>
     </HashRouter>

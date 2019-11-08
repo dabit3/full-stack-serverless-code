@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Input, Button } from 'antd';
+import Container from './Container'
 
 import { API, Auth } from 'aws-amplify'
 import { withAuthenticator } from 'aws-amplify-react'
@@ -9,7 +10,7 @@ const initialState = {
   name: '', price: ''
 }
 
-function App() {
+function Admin() {
   const [itemInfo, updateItemInfo] = useState(initialState)
   function updateForm(e) {
     const formData = {
@@ -20,10 +21,7 @@ function App() {
   async function addItem() {
     try {
       const data = {
-        body: {
-          ...itemInfo,
-          price: parseInt(itemInfo.price)
-        }
+        body: { ...itemInfo, price: parseInt(itemInfo.price) }
       }
       updateItemInfo(initialState)
       await API.post('ecommerceapi', '/products', data)
@@ -62,7 +60,7 @@ function App() {
 
 const containerStyle = {
   width: 400,
-  margin: '0 auto'
+  margin: '20px auto'
 }
 
 const inputStyle = {
@@ -73,6 +71,4 @@ const buttonStyle = {
   marginTop: 10
 }
 
-// export default App
-
-export default withAuthenticator(App);
+export default withAuthenticator(Admin);

@@ -124,31 +124,17 @@ app.get('/products', async function(req, res) {
   }
 })
 
-function createItem(body){
-  const input = { ...body, id: uuid() }
-  var params = {
-    TableName: ddb_table_name,
-    Item: input
-  }
-  return new Promise((resolve, reject) => {
-    docClient.put(params, function(err) {
-      if (err) {
-        console.log('error adding item to dynamo!: ', err)
-        reject(err)
-      } else {
-        console.log('successfully added item to dynamodb!')
-        resolve()
-      }
-    })
-  })
-}
-
 app.post('/products', async function(req, res) {
   const { event } = req.apiGateway
   const { body } = req
   try {
     await canPerformAction(event, 'Admin')
-    await createItem(body)
+    const input = { ...body, id: uuid() }
+    var params = {
+      TableName: ddb_table_name,
+      Item: input
+    }
+    await docClient.put(params).promise()
     res.json({
       success: 'item saved to database..'
     })
@@ -177,32 +163,17 @@ app.post('/products/*', function(req, res) {
 ****************************/
 
 app.put('/products', async function(req, res) {
-  // Add your code here
   try {
-    await updateItem(req.body.id)
-    res.json({ success: 'successfully deleted item' })
-  } catch (err) {
-    res.json({ error: err })
-  }
-
-  function updateItem(id){
     var params = {
       TableName: ddb_table_name,
-      Key: { id },
+      Key: { id: req.body.id },
       UpdateExpression: 'set price = :newprice',
       ExpressionAttributeValues: { ':newprice': 100 }
     }
-  
-    return new Promise((resolve, reject) => {
-      docClient.update(params, function(err, data) {
-        if (err) {
-          console.log('error updating item!: ', err)
-          reject(err)
-        } else {
-          resolve(data)
-        }
-      })
-    })
+    await docClient.update(params).promise()
+    res.json({ success: 'successfully deleted item' })
+  } catch (err) {
+    res.json({ error: err })
   }
 });
 
@@ -217,30 +188,15 @@ app.put('/products/*', function(req, res) {
 
 app.delete('/products', async function(req, res) {
   try {
-    await deleteItem(req.body.id)
+    var params = {
+      TableName : ddb_table_name,
+      Key: { id: req.body.id }
+    }
+    await docClient.delete(params).promise()
     res.json({ success: 'successfully deleted item' })
   } catch (err) {
     res.json({ error: err })
   }
-
-  function deleteItem(id){
-    var params = {
-      TableName : ddb_table_name,
-      Key: { id }
-    }
-  
-    return new Promise((resolve, reject) => {
-      docClient.delete(params, function(err, data) {
-        if (err) {
-          console.log('error deleting item!: ', err)
-          reject(err)
-        } else {
-          resolve(data)
-        }
-      })
-    })
-  }
-  
 });
 
 app.delete('/products/*', function(req, res) {
