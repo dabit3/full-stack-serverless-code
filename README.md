@@ -16,7 +16,7 @@ This is the repo for the code examples from my book [Full Stack Serverless](http
 [Custom authentication](https://github.com/dabit3/full-stack-serverless-code/tree/master/custom-authentication)
 
 #### Chapter 6
-[Serverless functions in depth](https://github.com/dabit3/full-stack-serverless-code/tree/master/serverless-functions-in-depth-part-1)
+[Serverless functions in depth part 1](https://github.com/dabit3/full-stack-serverless-code/tree/master/serverless-functions-in-depth-part-1)
 
 #### Chapter 7
-[Serverless functions in depth](https://github.com/dabit3/full-stack-serverless-code/tree/master/serverless-functions-in-depth-part-2)
+[Serverless functions in depth part 2](https://github.com/dabit3/full-stack-serverless-code/tree/master/serverless-functions-in-depth-part-2)
