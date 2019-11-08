@@ -6,7 +6,6 @@ import {  Auth } from 'aws-amplify'
 import { withAuthenticator } from 'aws-amplify-react'
 
 function Profile() {
-
   function signOut() {
     Auth.signOut()
       .catch(err => console.log('error signing out: ', err))

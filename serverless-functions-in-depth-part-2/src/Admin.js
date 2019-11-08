@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Input, Button } from 'antd';
-import Container from './Container'
 
 import { API, Auth } from 'aws-amplify'
 import { withAuthenticator } from 'aws-amplify-react'

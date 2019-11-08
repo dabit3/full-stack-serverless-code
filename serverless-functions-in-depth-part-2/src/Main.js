@@ -23,6 +23,8 @@ function Main() {
   }
   async function deleteItem(id) {
     try {
+      const products = state.products.filter(p => p.id !== id)
+      setState({ ...state, products })
       await API.del('ecommerceapi', '/products',
       { body: { id } })
       console.log('successfully deleted item')

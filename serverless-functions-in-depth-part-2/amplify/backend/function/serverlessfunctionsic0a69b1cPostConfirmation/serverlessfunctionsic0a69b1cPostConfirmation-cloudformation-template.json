@@ -101,7 +101,7 @@
 				"Runtime": "nodejs8.10",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "serverlessfunctionsi-dev-20191012202501-deployment",
+					"S3Bucket": "amplify-serverlessfunctionsi-dev-130003-deployment",
 					"S3Key": "amplify-builds/serverlessfunctionsic0a69b1cPostConfirmation-70722f6147496f544c34-build.zip"
 				}
 			}

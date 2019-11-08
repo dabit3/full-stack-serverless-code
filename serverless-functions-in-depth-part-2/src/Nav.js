@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Menu, Icon } from 'antd'
-import { Auth, Hub } from 'aws-amplify'
+import { Hub } from 'aws-amplify'
 import checkUser from './checkUser'
 
 const Nav = (props) => {
@@ -12,7 +12,7 @@ const Nav = (props) => {
     Hub.listen('auth', (data) => {
       const { payload: { event } } = data;
       console.log('event: ', event)
-      if (event === 'signIn' || event === 'signOut') checkUser()
+      if (event === 'signIn' || event === 'signOut') checkUser(updateUser)
     })
   }, [])
 
