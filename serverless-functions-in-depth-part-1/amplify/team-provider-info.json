@@ -1,0 +1,24 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-slsfn1-dev-70648-authRole",
+            "UnauthRoleArn": "arn:aws:iam::557458351015:role/amplify-slsfn1-dev-70648-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::557458351015:role/amplify-slsfn1-dev-70648-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-slsfn1-dev-70648-deployment",
+            "UnauthRoleName": "amplify-slsfn1-dev-70648-unauthRole",
+            "StackName": "amplify-slsfn1-dev-70648",
+            "StackId": "arn:aws:cloudformation:us-east-1:557458351015:stack/amplify-slsfn1-dev-70648/636a6550-0239-11ea-bd2a-1253a26d999e"
+        },
+        "categories": {
+            "function": {
+                "slsfn106dab2c3PostConfirmation": {
+                    "GROUP": "Admin"
+                }
+            },
+            "auth": {
+                "slsfn106dab2c3": {}
+            }
+        }
+    }
+}

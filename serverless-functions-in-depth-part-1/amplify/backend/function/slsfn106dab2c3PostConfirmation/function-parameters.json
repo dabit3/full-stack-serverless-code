@@ -1,0 +1,14 @@
+{
+    "trigger": true,
+    "modules": [
+        "add-to-group"
+    ],
+    "parentResource": "slsfn106dab2c3",
+    "functionName": "slsfn106dab2c3PostConfirmation",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerTemplate": "PostConfirmation.json.ejs",
+    "roleName": "slsfn106dab2c3PostConfirmation",
+    "skipEdit": true,
+    "resourceName": "slsfn106dab2c3PostConfirmation"
+}
