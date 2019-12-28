@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import { Button } from 'antd';
 
@@ -19,15 +19,7 @@ function Profile() {
 
 const containerStyle = {
   width: 400,
-  margin: '20px auto',
-}
-
-const inputStyle = {
-  marginTop: 10
-}
-
-const buttonStyle = {
-  marginTop: 10
+  margin: '20px auto'
 }
 
 export default withAuthenticator(Profile);

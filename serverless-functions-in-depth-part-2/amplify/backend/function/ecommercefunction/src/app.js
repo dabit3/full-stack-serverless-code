@@ -76,20 +76,16 @@ async function canPerformAction(event, group) {
   })
 }
 
-function getItems(){
+async function getItems(){
   var params = {
     TableName: ddb_table_name,
   }
-  return new Promise((resolve, reject) => {
-    docClient.scan(params, function(err, data) {
-      if (err) {
-        console.log('error fetching items from dynamo!: ', err)
-        reject(err)
-      } else {
-        resolve(data)
-      }
-    })
-  })
+  try {
+    const data = await docClient.scan(params).promise()
+    return data
+  } catch (err) {
+    return err
+  }
 }
 
 app.get('/products', async function(req, res) {

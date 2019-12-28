@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import { Input, Button } from 'antd';
 
-import { API, Auth } from 'aws-amplify'
+import { API } from 'aws-amplify'
 import { withAuthenticator } from 'aws-amplify-react'
 
 const initialState = {
@@ -27,10 +27,6 @@ function Admin() {
     } catch (err) {
       console.log('error adding item...')
     }
-  }
-  function signOut() {
-    Auth.signOut()
-      .catch(err => console.log('error signing out: ', err))
   }
   return (
     <div style={containerStyle}>
