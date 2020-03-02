@@ -25,4 +25,4 @@ This is the repo for the code examples from my book [Full Stack Serverless](http
 [AWS AppSync in Depth](https://github.com/dabit3/full-stack-serverless-code/tree/master/appsync-in-depth)
 
 #### Chapter 9
-[AWS AppSync in Depth](https://github.com/dabit3/full-stack-serverless-code/tree/master/rtmessageboard)
+[Building offline apps with Amplify Datastore](https://github.com/dabit3/full-stack-serverless-code/tree/master/rtmessageboard)
