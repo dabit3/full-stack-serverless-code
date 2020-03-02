@@ -23,3 +23,6 @@ This is the repo for the code examples from my book [Full Stack Serverless](http
 
 #### Chapter 8
 [AWS AppSync in Depth](https://github.com/dabit3/full-stack-serverless-code/tree/master/appsync-in-depth)
+
+#### Chapter 9
+[AWS AppSync in Depth](https://github.com/dabit3/full-stack-serverless-code/tree/master/rtmessageboard)

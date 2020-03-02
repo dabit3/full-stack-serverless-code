@@ -1,0 +1,7 @@
+type Message @model {
+  id: ID!
+  title: String!
+  color: String
+  image: String
+  createdAt: String
+}
