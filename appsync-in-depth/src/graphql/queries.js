@@ -4,10 +4,9 @@
 export const listStages = /* GraphQL */ `
   query ListStages(
     $filter: ModelStageFilterInput
-    $limit: Int
     $nextToken: String
   ) {
-    listStages(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listStages(filter: $filter, limit: 500, nextToken: $nextToken) {
       items {
         id
         name

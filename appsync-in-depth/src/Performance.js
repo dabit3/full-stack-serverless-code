@@ -6,12 +6,11 @@ import { API } from 'aws-amplify'
 
 function Performance() {
   const [performance, setPerformance] = useState(null)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   let { id } = useParams()
   useEffect(() => {
     fetchPerformanceInfo()
-    setLoading(true)
   }, [])
   async function fetchPerformanceInfo() {
     try {
@@ -24,6 +23,7 @@ function Performance() {
       setLoading(false)
     } catch (err) {
       console.log('error fetching talk info...', err)
+      setLoading(false)
     }
   }
   console.log('performance: ', performance)
