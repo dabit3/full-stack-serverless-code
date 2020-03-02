@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "appsyncindepth1cfe95d9_identitypool_1cfe95d9",
+    "identityPoolName": "appsyncindepthbbebec83_identitypool_bbebec83",
     "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "appsyn1cfe95d9",
-    "userPoolName": "appsyncindepth1cfe95d9_userpool_1cfe95d9",
+    "resourceNameTruncated": "appsynbbebec83",
+    "userPoolName": "appsyncindepthbbebec83_userpool_bbebec83",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,9 +28,9 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "appsyn1cfe95d9_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "appsynbbebec83_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "resourceName": "appsyncindepth1cfe95d9",
+    "resourceName": "appsyncindepthbbebec83",
     "authSelections": "identityPoolAndUserPool",
     "authRoleArn": {
         "Fn::GetAtt": [
@@ -45,6 +45,23 @@
         ]
     },
     "useDefault": "default",
+    "triggers": "{\"PostConfirmation\":[\"add-to-group\"]}",
     "userPoolGroupList": [],
-    "dependsOn": []
+    "parentStack": {
+        "Ref": "AWS::StackId"
+    },
+    "permissions": [
+        "{\"policyName\":\"AddToGroupCognito\",\"trigger\":\"PostConfirmation\",\"effect\":\"Allow\",\"actions\":[\"cognito-idp:AdminAddUserToGroup\",\"cognito-idp:GetGroup\",\"cognito-idp:CreateGroup\"],\"resource\":{\"paramType\":\"!GetAtt\",\"keys\":[\"UserPool\",\"Arn\"]}}"
+    ],
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "appsyncindepthbbebec83PostConfirmation",
+            "triggerProvider": "Cognito",
+            "attributes": [
+                "Arn",
+                "Name"
+            ]
+        }
+    ]
 }

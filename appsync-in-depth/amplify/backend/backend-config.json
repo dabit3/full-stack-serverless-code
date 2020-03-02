@@ -1,14 +1,30 @@
 {
 	"auth": {
-		"appsyncindepth1cfe95d9": {
+		"appsyncindepthbbebec83": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
-			"dependsOn": [],
-			"customAuth": false
+			"dependsOn": [
+				{
+					"category": "function",
+					"resourceName": "appsyncindepthbbebec83PostConfirmation",
+					"triggerProvider": "Cognito",
+					"attributes": [
+						"Arn",
+						"Name"
+					]
+				}
+			]
+		}
+	},
+	"function": {
+		"appsyncindepthbbebec83PostConfirmation": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true
 		}
 	},
 	"api": {
-		"mfapi": {
+		"festivalapi": {
 			"service": "AppSync",
 			"providerPlugin": "awscloudformation",
 			"output": {
@@ -21,7 +37,7 @@
 					"defaultAuthentication": {
 						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
 						"userPoolConfig": {
-							"userPoolId": "authappsyncindepth1cfe95d9"
+							"userPoolId": "authappsyncindepthbbebec83"
 						}
 					}
 				}

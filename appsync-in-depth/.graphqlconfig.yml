@@ -1,6 +1,6 @@
 projects:
-  mfapi:
-    schemaPath: amplify/backend/api/mfapi/build/schema.graphql
+  festivalapi:
+    schemaPath: src/graphql/schema.json
     includes:
       - src/graphql/**/*.js
     excludes:

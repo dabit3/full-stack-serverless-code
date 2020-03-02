@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { API } from 'aws-amplify'
 import { listStages } from './graphql/queries'
-import Title from './Title'
 import { Link } from 'react-router-dom'
 
 import { List } from 'antd';
@@ -26,7 +25,7 @@ function Home() {
   console.log('stages: ', stages)
   return (
     <div>
-     <Title title="Stages" />
+     <h1 style={heading}>Stages</h1>
       { loading && <h2>Loading...</h2>}
       {
         stages.map(stage => (
@@ -52,6 +51,7 @@ function Home() {
   )
 }
 
+const heading = { fontSize: 44, fontWeight: 300, marginBottom: 5 }
 const stageInfo = { padding: '20px 0px 10px', borderBottom: '2px solid #ddd' }
 const infoTitle = { fontWeight: 'bold' , fontSize: 18 }
 const infoHeading = { fontSize: 30, marginBottom: 5 }
