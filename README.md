@@ -20,3 +20,6 @@ This is the repo for the code examples from my book [Full Stack Serverless](http
 
 #### Chapter 7
 [Serverless functions in depth part 2](https://github.com/dabit3/full-stack-serverless-code/tree/master/serverless-functions-in-depth-part-2)
+
+#### Chapter 8
+[AWS AppSync in Depth](https://github.com/dabit3/full-stack-serverless-code/tree/master/appsync-in-depth)
