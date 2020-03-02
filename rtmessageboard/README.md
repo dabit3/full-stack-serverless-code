@@ -1,4 +1,4 @@
-# Chapter 8 - Building offline apps with Amplify Datastore
+# Chapter 9 - Building offline apps with Amplify Datastore
 
 To run this app:
 

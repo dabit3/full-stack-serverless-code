@@ -1,4 +1,4 @@
-# Chapter 8 - Building offline apps with Amplify Datastore
+# Chapter 8 - AWS AppSync in Depth
 
 To run this app:
 
