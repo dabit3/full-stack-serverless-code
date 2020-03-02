@@ -1,3 +1,5 @@
+// amplify/backend/function/<function_name>/src/add-to-group.js
+
 const aws = require('aws-sdk');
 
 exports.handler = async (event, context, callback) => {

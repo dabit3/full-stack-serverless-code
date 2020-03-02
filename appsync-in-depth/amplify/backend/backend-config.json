@@ -1,12 +1,19 @@
 {
+	"function": {
+		"appsyncauthPostConfirmation": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true
+		}
+	},
 	"auth": {
-		"appsyncindepthbbebec83": {
+		"appsyncauth": {
 			"service": "Cognito",
 			"providerPlugin": "awscloudformation",
 			"dependsOn": [
 				{
 					"category": "function",
-					"resourceName": "appsyncindepthbbebec83PostConfirmation",
+					"resourceName": "appsyncauthPostConfirmation",
 					"triggerProvider": "Cognito",
 					"attributes": [
 						"Arn",
@@ -14,13 +21,6 @@
 					]
 				}
 			]
-		}
-	},
-	"function": {
-		"appsyncindepthbbebec83PostConfirmation": {
-			"service": "Lambda",
-			"providerPlugin": "awscloudformation",
-			"build": true
 		}
 	},
 	"api": {
@@ -37,7 +37,7 @@
 					"defaultAuthentication": {
 						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
 						"userPoolConfig": {
-							"userPoolId": "authappsyncindepthbbebec83"
+							"userPoolId": "authappsyncauth"
 						}
 					}
 				}

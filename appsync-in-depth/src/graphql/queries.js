@@ -14,9 +14,9 @@ export const listStages = /* GraphQL */ `
         performances {
           items {
             id
+            time
             performer
             description
-            time
           }
         }
       }

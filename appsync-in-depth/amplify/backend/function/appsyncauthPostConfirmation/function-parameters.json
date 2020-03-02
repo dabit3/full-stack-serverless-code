@@ -1,0 +1,14 @@
+{
+    "trigger": true,
+    "modules": [
+        "add-to-group"
+    ],
+    "parentResource": "appsyncauth",
+    "functionName": "appsyncauthPostConfirmation",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerTemplate": "PostConfirmation.json.ejs",
+    "roleName": "appsyncauthPostConfirmation",
+    "skipEdit": true,
+    "resourceName": "appsyncauthPostConfirmation"
+}

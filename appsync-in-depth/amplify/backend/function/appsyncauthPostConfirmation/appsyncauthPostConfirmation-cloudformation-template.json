@@ -61,12 +61,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"appsyncindepthbbebec83PostConfirmation",
+						"appsyncauthPostConfirmation",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"appsyncindepthbbebec83PostConfirmation",
+									"appsyncauthPostConfirmation",
 									"-",
 									{
 										"Ref": "env"
@@ -101,8 +101,8 @@
 				"Runtime": "nodejs10.x",
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-appsync-in-depth-dev-143441-deployment",
-					"S3Key": "amplify-builds/appsyncindepthbbebec83PostConfirmation-785446706541352b3675-build.zip"
+					"S3Bucket": "amplify-appsync-in-depth-dev-234155-deployment",
+					"S3Key": "amplify-builds/appsyncauthPostConfirmation-79754d3952716d425549-build.zip"
 				}
 			}
 		},
@@ -112,12 +112,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"appsyncindepthbbebec83PostConfirmation",
+						"appsyncauthPostConfirmation",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"appsyncindepthbbebec83PostConfirmation",
+									"appsyncauthPostConfirmation",
 									"-",
 									{
 										"Ref": "env"

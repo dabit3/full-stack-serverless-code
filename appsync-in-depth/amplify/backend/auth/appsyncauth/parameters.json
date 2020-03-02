@@ -1,8 +1,8 @@
 {
-    "identityPoolName": "appsyncindepthbbebec83_identitypool_bbebec83",
-    "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "appsynbbebec83",
-    "userPoolName": "appsyncindepthbbebec83_userpool_bbebec83",
+    "identityPoolName": "appsync_in_depth1b481f1a_identitypool_1b481f1a",
+    "allowUnauthenticatedIdentities": true,
+    "resourceNameTruncated": "appsyn1b481f1a",
+    "userPoolName": "appsync_in_depth1b481f1a_userpool_1b481f1a",
     "autoVerifiedAttributes": [
         "email"
     ],
@@ -28,10 +28,17 @@
     "userpoolClientReadAttributes": [
         "email"
     ],
-    "userpoolClientLambdaRole": "appsynbbebec83_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "appsyn1b481f1a_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "resourceName": "appsyncindepthbbebec83",
+    "useDefault": "manual",
     "authSelections": "identityPoolAndUserPool",
+    "resourceName": "appsyncauth",
+    "thirdPartyAuth": false,
+    "userPoolGroups": false,
+    "adminQueries": false,
+    "triggers": "{\"PostConfirmation\":[\"add-to-group\"]}",
+    "hostedUI": false,
+    "userPoolGroupList": [],
     "authRoleArn": {
         "Fn::GetAtt": [
             "AuthRole",
@@ -44,9 +51,6 @@
             "Arn"
         ]
     },
-    "useDefault": "default",
-    "triggers": "{\"PostConfirmation\":[\"add-to-group\"]}",
-    "userPoolGroupList": [],
     "parentStack": {
         "Ref": "AWS::StackId"
     },
@@ -56,7 +60,7 @@
     "dependsOn": [
         {
             "category": "function",
-            "resourceName": "appsyncindepthbbebec83PostConfirmation",
+            "resourceName": "appsyncauthPostConfirmation",
             "triggerProvider": "Cognito",
             "attributes": [
                 "Arn",

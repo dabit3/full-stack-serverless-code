@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { API } from 'aws-amplify'
 import { listStages } from './graphql/queries'
 import { Link } from 'react-router-dom'
-
 import { List } from 'antd';
 
 function Home() {
@@ -13,7 +12,6 @@ function Home() {
       query: listStages,
       authMode: 'AWS_IAM'
     })
-    console.log('apiData: ', apiData)
     const { data: { listStages: { items }}} = apiData
     setLoading(false)
     setStages(items)
