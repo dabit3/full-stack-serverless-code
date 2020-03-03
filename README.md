@@ -2,6 +2,8 @@
 
 This is the repo for the code examples from my book [Full Stack Serverless](https://www.oreilly.com/library/view/full-stack-serverless/9781492059882/)
 
+> Follow me on Twitter at [@dabit3](https://twitter.com/dabit3)
+
 ### This repo is a work in progress
 
 #### Chapter 3
