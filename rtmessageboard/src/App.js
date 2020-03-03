@@ -6,14 +6,18 @@ import { Message} from "./models"
 
 const initialState = { color: '#000000', title: '', }
 function App() {
-  const [showPicker, updateShowPicker] = useState(false) 
   const [formState, updateFormState] = useState(initialState)
   const [messages, updateMessages] = useState([])
+  const [showPicker, updateShowPicker] = useState(false) 
   useEffect(() => {
     fetchMessages()
     const subscription = DataStore.observe(Message).subscribe(() => fetchMessages())
     return () => subscription.unsubscribe()
   }, [])
+  async function fetchMessages() {
+    const messages = await DataStore.query(Message)
+    updateMessages(messages)
+  }
   function onChange(e) {
     if (e.hex) {
       updateFormState({ ...formState, color: e.hex})
@@ -22,12 +26,7 @@ function App() {
   async function createMessage() {
     if (!formState.title) return
     await DataStore.save(new Message({ ...formState }))
-    fetchMessages()
     updateFormState(initialState)
-  }
-  async function fetchMessages() {
-    const messages = await DataStore.query(Message)
-    updateMessages(messages)
   }
   return (
     <div style={container}>

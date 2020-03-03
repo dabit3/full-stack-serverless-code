@@ -22,6 +22,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+amplify/team-provider-info.json
+
 #amplify
 amplify/\#current-cloud-backend
 amplify/.config/local-*
@@ -36,5 +38,3 @@ awsconfiguration.json
 amplifyconfiguration.json
 amplify-gradle-config.json
 amplifyxc.config
-
-amplify/team-provider-info.json

@@ -9,8 +9,8 @@
 					"defaultAuthentication": {
 						"authenticationType": "API_KEY",
 						"apiKeyConfig": {
-							"description": "rtmessageboard",
-							"apiKeyExpirationDays": "365"
+							"description": "public",
+							"apiKeyExpirationDays": 7
 						}
 					}
 				}
