@@ -9,11 +9,8 @@ export const createPost = /* GraphQL */ `
     createPost(input: $input, condition: $condition) {
       id
       title
-      image {
-        bucket
-        region
-        key
-      }
+      imageKey
+      clientId
     }
   }
 `;
@@ -25,11 +22,8 @@ export const updatePost = /* GraphQL */ `
     updatePost(input: $input, condition: $condition) {
       id
       title
-      image {
-        bucket
-        region
-        key
-      }
+      imageKey
+      clientId
     }
   }
 `;
@@ -41,11 +35,8 @@ export const deletePost = /* GraphQL */ `
     deletePost(input: $input, condition: $condition) {
       id
       title
-      image {
-        bucket
-        region
-        key
-      }
+      imageKey
+      clientId
     }
   }
 `;

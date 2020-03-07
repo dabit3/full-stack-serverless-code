@@ -6,11 +6,8 @@ export const getPost = /* GraphQL */ `
     getPost(id: $id) {
       id
       title
-      image {
-        bucket
-        region
-        key
-      }
+      imageKey
+      clientId
     }
   }
 `;
@@ -24,11 +21,8 @@ export const listPosts = /* GraphQL */ `
       items {
         id
         title
-        image {
-          bucket
-          region
-          key
-        }
+        imageKey
+        clientId
       }
       nextToken
     }

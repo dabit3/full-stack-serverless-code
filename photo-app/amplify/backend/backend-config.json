@@ -21,7 +21,10 @@
 				"authConfig": {
 					"additionalAuthenticationProviders": [],
 					"defaultAuthentication": {
-						"authenticationType": "AWS_IAM"
+						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
+						"userPoolConfig": {
+							"userPoolId": "authphotoappbfde73d7"
+						}
 					}
 				}
 			}

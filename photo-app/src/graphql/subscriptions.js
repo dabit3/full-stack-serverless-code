@@ -6,11 +6,8 @@ export const onCreatePost = /* GraphQL */ `
     onCreatePost {
       id
       title
-      image {
-        bucket
-        region
-        key
-      }
+      imageKey
+      clientId
     }
   }
 `;
@@ -19,11 +16,8 @@ export const onUpdatePost = /* GraphQL */ `
     onUpdatePost {
       id
       title
-      image {
-        bucket
-        region
-        key
-      }
+      imageKey
+      clientId
     }
   }
 `;
@@ -32,11 +26,8 @@ export const onDeletePost = /* GraphQL */ `
     onDeletePost {
       id
       title
-      image {
-        bucket
-        region
-        key
-      }
+      imageKey
+      clientId
     }
   }
 `;
