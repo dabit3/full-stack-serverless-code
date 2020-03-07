@@ -1,0 +1,11 @@
+type Post @model {
+  id: ID!
+  title: String!
+  image: S3Object!
+}
+
+type S3Object {
+  bucket: String!
+  region: String!
+  key: String!
+}
