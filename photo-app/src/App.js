@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { Radio } from 'antd'
-import { v4 as uuid } from 'uuid'
 import { withAuthenticator } from 'aws-amplify-react'
 import Posts from './Posts'
 import CreatePost from './CreatePost'
-
-const CLIENT_ID = uuid()
 
 function App() {
   const [viewState, updateViewState] = useState('viewPosts')
@@ -19,9 +16,9 @@ function App() {
       </Radio.Group>
       {
         viewState === 'viewPosts' ? (
-          <Posts clientId={CLIENT_ID} />
+          <Posts />
         ) : (
-          <CreatePost updateViewState={updateViewState} clientId={CLIENT_ID} />
+          <CreatePost updateViewState={updateViewState} />
         )
       }
     </div>

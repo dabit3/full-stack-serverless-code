@@ -9,7 +9,7 @@ const initialFormState = {
   image: {}
 }
 
-function CreatePost({ clientId, updateViewState }) {
+function CreatePost({ updateViewState }) {
   const [formState, updateFormState] = useState(initialFormState)
 
   function onChange(key, value) {
@@ -28,7 +28,7 @@ function CreatePost({ clientId, updateViewState }) {
 
     const imageKey = uuid() + formState.image.name.replace(/\s/g, '-').toLowerCase()
     await Storage.put(imageKey, formState.image)
-    const post = { title, imageKey, clientId }
+    const post = { title, imageKey }
     await API.graphql(graphqlOperation(createPost, { input: post }))
     updateViewState('viewPosts')
   }

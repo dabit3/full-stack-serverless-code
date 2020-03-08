@@ -26,7 +26,7 @@ async function getSignedPosts(posts) {
   return signedPosts
 }
 
-function Posts({ clientId }) {
+function Posts() {
   const [posts, dispatch] = useReducer(reducer, [])
 
   useEffect(() => {
@@ -35,7 +35,6 @@ function Posts({ clientId }) {
     const subscription = API.graphql(graphqlOperation(onCreatePost)).subscribe({
       next: async post => {
         const newPost = post.value.data.onCreatePost
-        if (newPost.clientId === clientId) return
         const signedUrl = await Storage.get(newPost.imageKey)
         newPost.imageUrl = signedUrl
         dispatch({ type: 'ADD_POST', post: newPost })
@@ -56,9 +55,9 @@ function Posts({ clientId }) {
       <h2 style={heading}>Posts</h2>
       {
         posts.map(post => (
-          <div key={post.id}>
-            <h3>{post.title}</h3>
-            <img style={image} src={post.imageUrl} />
+          <div key={post.id} style={postContainer}>
+            <img style={postImage} src={post.imageUrl} />
+            <h3 style={postTitle}>{post.title}</h3>
           </div>
         ))
       }
@@ -66,7 +65,9 @@ function Posts({ clientId }) {
   )
 }
 
+const postContainer = { padding: '20px 0px 0px', borderBottom: '1px solid #ddd' }
 const heading = { margin: '20px 0px' }
-const image = { width: 400 }
+const postImage = { width: 400 }
+const postTitle = { marginTop: 4 }
 
 export default Posts
