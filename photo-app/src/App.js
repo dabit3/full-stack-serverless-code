@@ -11,8 +11,8 @@ function App() {
     <div style={container}>
       <h1>Photo App</h1>
       <Radio.Group value={viewState} onChange={e => updateViewState(e.target.value)}>
-        <Radio.Button value="viewPosts">View Photos</Radio.Button>
-        <Radio.Button value="addPhoto">Add Photo</Radio.Button>
+        <Radio.Button value="viewPosts">View Posts</Radio.Button>
+        <Radio.Button value="addPost">Add Post</Radio.Button>
       </Radio.Group>
       {
         viewState === 'viewPosts' ? (
