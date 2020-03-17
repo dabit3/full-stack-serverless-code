@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Menu, Icon } from 'antd'
+import { Menu } from 'antd'
+import { HomeOutlined, UserOutlined, ProfileOutlined } from '@ant-design/icons'
 import { Hub } from 'aws-amplify'
 import checkUser from './checkUser'
 
@@ -21,19 +22,19 @@ const Nav = (props) => {
       <Menu selectedKeys={[current]} mode="horizontal">
         <Menu.Item key='home'>
           <Link to={`/`}>
-            <Icon type='home' />Home
+            <HomeOutlined />Home
           </Link>
         </Menu.Item>
         <Menu.Item key='profile'>
           <Link to='/profile'>
-            <Icon type='user' />Profile
+            <UserOutlined />Profile
           </Link>
         </Menu.Item>
         {
           user.isAuthorized && (
             <Menu.Item key='admin'>
               <Link to='/admin'>
-                <Icon type='profile' />Admin
+                <ProfileOutlined />Admin
               </Link>
             </Menu.Item>
           )

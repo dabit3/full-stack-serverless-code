@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "antd": "^3.23.6",
+    "antd": "^4.0.3",
     "aws-amplify": "^1.2.2",
     "aws-amplify-react": "^2.5.2",
     "react": "^16.10.2",

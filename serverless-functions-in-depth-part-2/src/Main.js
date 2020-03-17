@@ -25,8 +25,7 @@ function Main() {
     try {
       const products = state.products.filter(p => p.id !== id)
       setState({ ...state, products })
-      await API.del('ecommerceapi', '/products',
-      { body: { id } })
+      await API.del('ecommerceapi', '/products', { body: { id } })
       console.log('successfully deleted item')
     } catch (err) {
       console.log('error: ', err)
