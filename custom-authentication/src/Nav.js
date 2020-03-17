@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Menu, Icon } from 'antd'
+import { Menu } from 'antd'
+import { HomeOutlined, ProfileOutlined, FileProtectOutlined } from '@ant-design/icons'
 
 const Nav = (props) => {
   const { current } = props
@@ -9,17 +10,17 @@ const Nav = (props) => {
       <Menu selectedKeys={[current]} mode="horizontal">
         <Menu.Item key='home'>
           <Link to={`/`}>
-            <Icon type='home' />Home
+            <HomeOutlined />Home
           </Link>
         </Menu.Item>
         <Menu.Item key='profile'>
           <Link to='/profile'>
-            <Icon type='profile' />Profile
+          <ProfileOutlined />>Profile
           </Link>
         </Menu.Item>
         <Menu.Item key='protected'>
           <Link to='/protected'>
-            <Icon type='protected' />Protected
+            <FileProtectOutlined />Protected
           </Link>
         </Menu.Item>
       </Menu>
