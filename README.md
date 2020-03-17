@@ -28,3 +28,7 @@ This is the repo for the code examples from my book [Full Stack Serverless](http
 
 #### Chapter 9
 [Building offline apps with Amplify Datastore](https://github.com/dabit3/full-stack-serverless-code/tree/master/rtmessageboard)
+
+#### Chapter 10
+
+[Working with Images and Storage](https://github.com/dabit3/full-stack-serverless-code/tree/master/photo-app)
