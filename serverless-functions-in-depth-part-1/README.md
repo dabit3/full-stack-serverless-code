@@ -13,10 +13,10 @@ To run this app:
 1. Clone the repository
 
 ```sh
-git clone https://github.com/dabit3/serverless-functions-in-depth-part-1.git
+git clone https://github.com/dabit3/full-stack-serverless-code.git
 ```
 
-2. Change into the directory
+1. Change into the directory
 
 ```sh
 cd serverless-functions-in-depth-part-1
