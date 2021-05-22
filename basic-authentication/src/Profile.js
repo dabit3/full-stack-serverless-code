@@ -11,7 +11,7 @@ function Profile() {
   const [user, setUser] = useState({}) 
   async function checkUser() {
     try {
-      const data = await Auth.currentUserPoolUser()
+      const data = await Auth.currentAuthenticatedUser()
       const userInfo = { username: data.username, ...data.attributes, }
       setUser(userInfo)
     } catch (err) { console.log('error: ', err) }
